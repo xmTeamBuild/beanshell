@@ -115,7 +115,7 @@
                 <configuration>
                     <!-- docker所构建的镜像的名字 -->
                     <imageName>121.196.18.208:5000/${project.artifactId}:${project.version}</imageName>
-                    <!--<dockerHost>http://121.196.18.208:2375</dockerHost>-->
+                    <dockerHost>http://121.196.18.208:2375</dockerHost>
                     <!-- 构建所需要的基础镜像，上面所构建的jdk1.8镜像文件，也就是在该镜像文件的基础上再包裹一层，故其可以看作一个完整的最小运行系统 -->
                     <baseImage>java:8</baseImage>
                     <!--创建和启动容器时所执行的命令：jar -jar /app.jar -->
