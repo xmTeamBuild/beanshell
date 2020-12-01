@@ -1,0 +1,17 @@
+server:
+  port: 8001
+
+
+spring:
+  application:
+    name: sysmanage-center
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: org.gjt.mm.mysql.Driver              # mysql驱动包
+    url: jdbc:mysql://rm-bp18ie6z0x2mhfr016o.mysql.rds.aliyuncs.com:3306/teambuild?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: teamroot
+    password: teamroot
+
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  type-aliases-package: com.xmTeam.cloud.entities    # 所有Entity别名类所在包

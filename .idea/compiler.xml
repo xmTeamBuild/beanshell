@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="api-common-center" />
+        <module name="bean-shell-center" />
+        <module name="bean-shell-ctrl" />
+        <module name="sysmanage-center" />
+        <module name="sysmanage-ctrl" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bean.shell.dao.SysAttrSpecMapper">
+    <select id="qryAttrValueList" resultType="com.bean.shell.vo.SysAttrValueVO">
+        select a.attr_value,
+        a.attr_name,
+        b.attr_spec_code,
+        b.attr_spec_id
+        from sys_attr_value a,
+        sys_attr_spec b
+        where a.attr_spec_id= b.attr_spec_id
+        <if test="req.attrSpecCode !=null and req.attrSpecCode!=''">
+            and b.attr_spec_code = #{req.attrSpecCode}
+        </if>
+    </select>
+</mapper>
