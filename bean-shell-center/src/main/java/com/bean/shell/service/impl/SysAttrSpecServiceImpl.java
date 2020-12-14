@@ -10,7 +10,6 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bean.shell.vo.PurchaseRequest;
 import com.bean.shell.vo.SysAttrRequest;
 import com.bean.shell.vo.SysAttrValueVO;
-import com.sun.javafx.scene.web.Debugger;
 import com.xmTeam.cloud.entities.CommonResult;
 import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.stereotype.Service;
