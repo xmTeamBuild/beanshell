@@ -5,13 +5,20 @@ import cn.hutool.Hutool;
 import cn.hutool.core.bean.BeanUtil;
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONObject;
 import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.util.DateUtils;
 import com.bean.shell.entities.PurchaseData;
+import com.bean.shell.entities.PurchaseDetail;
 import com.bean.shell.entities.PurchaseInfo;
+import com.bean.shell.service.IPurchaseDetailService;
 import com.bean.shell.service.IPurchaseInfoService;
 import com.bean.shell.util.ExcelUtil;
+import com.bean.shell.util.HttpServerUtil;
 import com.bean.shell.vo.PurchaseRequest;
 import com.bean.shell.vo.PurchaseVO;
+import com.bean.shell.vo.SysAttrRequest;
 import com.xmTeam.cloud.entities.CommonResult;
 import com.xmTeam.cloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +28,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -40,6 +48,9 @@ import java.util.List;
 public class PurchaseInfoController {
     @Resource
     private IPurchaseInfoService purchaseInfoService;
+
+    @Resource
+    private IPurchaseDetailService purchaseDetailService;
 
     @GetMapping(value = "/purchase/getPurchaseName/{page}/{size}")
     public CommonResult getPurchaseByName( @PathVariable("page") long page,
@@ -64,5 +75,8 @@ public class PurchaseInfoController {
            log.error("导出异常" + e.getMessage());
         }
     }
+
+
+
 }
 

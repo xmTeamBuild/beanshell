@@ -16,4 +16,6 @@ public class SysAttrValueVO implements Serializable {
     private String attrSpecCode;
 
     private Long attrSpecId;
+
+    private String attrDesc;
 }

@@ -4,32 +4,43 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import java.util.Date;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 豆壳采购
+ * 豆壳采购数据列表
  * </p>
  *
  * @author shenzq
- * @since 2020-11-30
+ * @since 2020-12-13
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class PurchaseInfo implements Serializable {
+public class PurchaseList implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "purchase_info_id", type = IdType.AUTO)
-    private Long purchaseInfoId;
+    /**
+     * 主键
+     */
+    @TableId(value = "purchase_list_id", type = IdType.AUTO)
+    private Long purchaseListId;
 
     /**
-     * 采购类型
+     * 采购类
      */
-    private Long purchaseType;
+    private String parentType;
+
+    /**
+     * 采购类名称
+     */
+    private String parentName;
+
+    /**
+     * 品名类型
+     */
+    private String purchaseType;
 
     /**
      * 品名
@@ -37,9 +48,19 @@ public class PurchaseInfo implements Serializable {
     private String purchaseName;
 
     /**
+     * 数量
+     */
+    private Float purchaseNum;
+
+    /**
      * 规格
      */
-    private Long purchaseUnit;
+    private String purchaseSpec;
+
+    /**
+     * 下单时间
+     */
+    private String purchaseTime;
 
     /**
      * 备注
@@ -52,19 +73,19 @@ public class PurchaseInfo implements Serializable {
     private String createTime;
 
     /**
-     * 创建人员
+     * 创建员工
      */
-    private Long createOper;
+    private String createOper;
 
     /**
-     * 修改时间
+     * 更新时间
      */
-    private Date updateTime;
+    private String updateTime;
 
     /**
-     * 修改人员
+     * 更新员工
      */
-    private Long updateOper;
+    private String updateOper;
 
     /**
      * 状态

@@ -4,47 +4,50 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
-import java.util.Date;
-
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 /**
  * <p>
- * 豆壳采购
+ * 采购详情
  * </p>
  *
  * @author shenzq
- * @since 2020-11-30
+ * @since 2020-12-13
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-public class PurchaseInfo implements Serializable {
+public class PurchaseDetail implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @TableId(value = "purchase_info_id", type = IdType.AUTO)
+    /**
+     * 主键id
+     */
+    @TableId(value = "purchase_detail_id", type = IdType.AUTO)
+    private Long purchaseDetailId;
+
     private Long purchaseInfoId;
 
     /**
-     * 采购类型
+     * 单价
      */
-    private Long purchaseType;
+    private Float purchaseUnitPrice;
 
     /**
-     * 品名
+     * 数量
      */
-    private String purchaseName;
+    private Float puchaseNumber;
 
     /**
-     * 规格
+     * 总价
      */
-    private Long purchaseUnit;
+    private Float puchaseTotalPrice;
 
     /**
-     * 备注
+     * 下单时间
      */
-    private String remark;
+    private LocalDate orderTime;
 
     /**
      * 创建时间
@@ -52,17 +55,17 @@ public class PurchaseInfo implements Serializable {
     private String createTime;
 
     /**
-     * 创建人员
+     * 更新时间
      */
     private Long createOper;
 
     /**
-     * 修改时间
+     * 创建人员
      */
-    private Date updateTime;
+    private String updateTime;
 
     /**
-     * 修改人员
+     * 更新人员
      */
     private Long updateOper;
 
@@ -70,6 +73,11 @@ public class PurchaseInfo implements Serializable {
      * 状态
      */
     private Long status;
+
+    /**
+     * 备注
+     */
+    private String remark;
 
 
 }

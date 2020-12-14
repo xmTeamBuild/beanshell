@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import java.time.LocalDate;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.Date;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -33,9 +35,9 @@ public class SysAttrSpec implements Serializable {
 
     private String attrSpecDesc;
 
-    private LocalDate createTime;
+    private Date createTime;
 
-    private LocalDate updateTime;
+    private Date updateTime;
 
 
 }

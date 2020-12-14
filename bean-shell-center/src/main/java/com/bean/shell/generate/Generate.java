@@ -35,7 +35,7 @@ public class Generate {
         GlobalConfig gc = new GlobalConfig();
 //        String projectPath = System.getProperty("user.dir");
         gc.setFileOverride(true);
-        gc.setOutputDir("D:\\UAT\\center\\xmCloud\\bean-shell-center\\src\\main\\java");
+        gc.setOutputDir("D:\\shenzq\\beanshell\\beanshell\\bean-shell-center\\src\\main\\java");
         gc.setAuthor("shenzq");
         gc.setOpen(false);
         // gc.setSwagger2(true); 实体属性 Swagger2 注解
@@ -131,7 +131,7 @@ public class Generate {
                 .setEntityLombokModel(true)
                 .setRestControllerStyle(true)
                 // 生成的表, 支持多表一起生成，以数组形式填写
-                .setInclude("sys_attr_spec")
+                .setInclude("beanshell_staff")
                 .setControllerMappingHyphenStyle(true)
                 .setTablePrefix(pkConfig.getModuleName() + "_");
 

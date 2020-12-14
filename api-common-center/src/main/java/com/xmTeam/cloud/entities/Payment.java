@@ -94,5 +94,8 @@ public class Payment implements Serializable {
      */
     private String status;
 
+    private String purchaseType ;
+
+    private Long attrSpecId;
 
 }

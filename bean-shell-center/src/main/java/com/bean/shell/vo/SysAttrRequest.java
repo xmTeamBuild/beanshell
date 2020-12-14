@@ -7,4 +7,7 @@ public class SysAttrRequest {
 
     private String attrSpecCode;
 
+    private Long attrSpecId ;
+
+
 }

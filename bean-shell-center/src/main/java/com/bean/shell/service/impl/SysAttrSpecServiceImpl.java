@@ -10,7 +10,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.bean.shell.vo.PurchaseRequest;
 import com.bean.shell.vo.SysAttrRequest;
 import com.bean.shell.vo.SysAttrValueVO;
+import com.sun.javafx.scene.web.Debugger;
 import com.xmTeam.cloud.entities.CommonResult;
+import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
 
@@ -41,10 +43,14 @@ public class SysAttrSpecServiceImpl extends ServiceImpl<SysAttrSpecMapper, SysAt
             req=new SysAttrRequest();
         }
         List<SysAttrValueVO> data = sysAttrSpecMapper.qryAttrValueList(req);
-        Map<String, List<SysAttrValueVO>> collect = new HashMap<>();
-        if(!CollectionUtils.isEmpty(data)){
-            collect =  data.stream().collect(Collectors.groupingBy(SysAttrValueVO::getAttrSpecCode));
+        if(req.getAttrSpecId() != null ){
+            return new CommonResult(200,"查询Attrvalue数据成功",data);
+        }else{
+            Map<Long, List<SysAttrValueVO>> collect = new HashMap<>();
+            if(!CollectionUtils.isEmpty(data)){
+                collect =  data.stream().collect(Collectors.groupingBy(SysAttrValueVO::getAttrSpecId));
+            }
+            return new CommonResult(200,"查询Attrvalue数据成功",collect);
         }
-        return new CommonResult(200,"查询Attrvalue数据成功",collect);
     }
 }

@@ -5,12 +5,16 @@
         select a.attr_value,
         a.attr_name,
         b.attr_spec_code,
-        b.attr_spec_id
+        b.attr_spec_id,
+        a.attr_desc
         from sys_attr_value a,
         sys_attr_spec b
         where a.attr_spec_id= b.attr_spec_id
         <if test="req.attrSpecCode !=null and req.attrSpecCode!=''">
             and b.attr_spec_code = #{req.attrSpecCode}
+        </if>
+        <if test="req.attrSpecId !=null">
+            and b.attr_spec_id = #{req.attrSpecId}
         </if>
     </select>
 </mapper>
