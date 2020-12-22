@@ -40,7 +40,7 @@ public class BeanshellStaff implements Serializable {
     /**
      * 创建时间
      */
-    private LocalDate createTime;
+    private String createTime;
 
     /**
      * 状态
