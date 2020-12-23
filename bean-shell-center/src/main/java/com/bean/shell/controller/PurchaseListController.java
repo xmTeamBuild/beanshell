@@ -50,6 +50,7 @@ public class PurchaseListController {
     public CommonResult addOrder(HttpServletRequest request, HttpServletResponse response){
         String reqBody = HttpServerUtil.reader(request, response);
         JSONObject json = new JSONObject(reqBody);
+        String staffId = json.getStr("staffId");
         JSONArray jsonArray = json.getJSONArray("purchaseList");
         List<PurchaseList> purchaseListList = new ArrayList<>();
         String now = DateUtil.now();
@@ -66,6 +67,7 @@ public class PurchaseListController {
                 purchaseList.setCreateTime(now);
                 purchaseList.setPurchaseTime(now);
                 purchaseList.setUpdateTime(now);
+                purchaseList.setCreateOper(staffId);
                 purchaseListList.add(purchaseList);
             }
         }
@@ -88,10 +90,15 @@ public class PurchaseListController {
         QueryWrapper<PurchaseList> queryWrapper = new QueryWrapper<>();
         // 定义今日还是历史
         String type =json.getStr("orderType");
+        String staffId =json.getStr("staffId");
         if(StrUtil.isNotEmpty(type) && "today".equals(type)){
             String date =  DateUtil.format(DateUtil.date(),"yyyy/MM/dd");
 //        String date = json.getStr("orderDate");
             queryWrapper.eq("purchase_time",date);
+        }
+        // 只查询当前登录员工的信息
+        if(StrUtil.isNotEmpty(staffId)){
+            queryWrapper.eq("create_oper",staffId);
         }
         queryWrapper.orderByDesc("PURCHASE_TIME");
         List<PurchaseList> purchaseLists =  purchaseListService.list(queryWrapper);
