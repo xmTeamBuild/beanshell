@@ -92,5 +92,14 @@ public class PurchaseList implements Serializable {
      */
     private Long status;
 
+    /**
+     * 单价
+     */
+    private Float unitPrice;
+    /**
+     * 总价
+     */
+    private Float totalPrice;
+
 
 }

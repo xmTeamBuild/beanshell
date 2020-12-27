@@ -1,12 +1,32 @@
 package com.bean.shell.vo;
 
+import lombok.Data;
+
 import java.util.Date;
 
+@Data
 public class PurchaseRequest {
     /**
      * 采购类型
      */
-    private Long purchaseType;
+    private String parentType;
+
+    /**
+     * 采购品名
+     */
+    private String purchaseType;
+    /**
+     * 采购店
+     */
+    private String shopName;
+    /**
+     * 下单开始时间
+     */
+    private String purchaseBeginTime;
+    /**
+     * 下单结束时间
+     */
+    private String purchaseEndTime;
 
     /**
      * 品名

@@ -10,45 +10,86 @@ public class PurchaseVO implements Serializable {
 
     private static final long serialVersionUID = 3230137778441396518L;
 
+    private Long purchaseListId;
+
     /**
      * 采购类型
      */
-    private Long purchaseType;
+    private String parentType;
+
+    /**
+     * 品名
+     */
+    private String parentName;
+    /**
+     * 品名类型
+     */
+    private String purchaseType;
 
     /**
      * 品名
      */
     private String purchaseName;
+
+    /**
+     * 数量
+     */
+    private Float purchaseNum;
+
     /**
      * 规格
      */
-    private Long purchaseUnit;
+    private String purchaseSpec;
+
+    /**
+     * 下单时间
+     */
+    private String purchaseTime;
+
     /**
      * 备注
      */
     private String remark;
-    /**
-     * 单价
-     */
-    private String purchaseUnitPrice;
-    /**
-     * 数量
-     */
-    private String puchaseNumber;
-    /**
-     * 总价
-     */
-    private String puchaseTotalPrice;
-    /**
-     * 下单时间
-     */
-    private Date orderTime;
+
     /**
      * 创建时间
      */
-    private Date create_time;
+    private String createTime;
+
+    /**
+     * 创建员工
+     */
+    private String createOper;
+
+    /**
+     * 更新时间
+     */
+    private String updateTime;
+
+    /**
+     * 更新员工
+     */
+    private String updateOper;
+
     /**
      * 状态
      */
     private Long status;
+    /**
+     * 员工名称
+     */
+    private String staffName;
+    /**
+     * 下单来源店
+     */
+    private String shopAddr;
+
+    /**
+     * 单价
+     */
+    private Float unitPrice;
+    /**
+     * 总价
+     */
+    private Float totalPrice;
 }

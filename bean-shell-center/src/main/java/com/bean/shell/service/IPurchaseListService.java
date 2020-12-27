@@ -2,6 +2,8 @@ package com.bean.shell.service;
 
 import com.bean.shell.entities.PurchaseList;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.bean.shell.vo.PurchaseRequest;
+import com.xmTeam.cloud.entities.CommonResult;
 
 /**
  * <p>
@@ -12,5 +14,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-12-13
  */
 public interface IPurchaseListService extends IService<PurchaseList> {
+
+    CommonResult queryPurchaseList (Long page, Long size, PurchaseRequest req);
 
 }
